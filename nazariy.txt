@@ -1,0 +1,34 @@
+Savol 1: Django loyhasida texnik shart (TZ) asosida model tuzishda qanday qadamlar bajariladi
+va bu jarayonda nimalarga e'tibor berish kerak?
+Javob 1: Bu jarayonda qilish kerak bolgan qadamlarning ketmaketligi yozib boriladi ya'ni loyhaning
+asosiy g'oyasini, loyhaning shartlarini, uning funktsionali, loyha ichida qilish mumkun bogan
+imkoniyatlar haqida yoziladi. Bu jarayonda asosiy e'tiborni texnik shart tog'ri va tog'ri ketmaketlikda
+tuzilganiga qaratish kerak, har bir qadam togri chuntirilib yozilgan bolishi kerak.
+
+Savol 2: Django'da foydalanuvchi autentifikatsiyasi tizimini o'rnatishda qanday vositalar ishlatiladi?
+Javob 2 : Uning uchun birinchi bolib models.py ga AbstractUser nomli kutubxonani ornatib/import qilib olish
+kerak va class orqali berib qoyish kerak, song views.py ga autentifikatsiyaning so'rovlarini kodini
+dekoratorlar ishlatgan holda yoziladi, undan song admin.py ni ichida modelarni registratsiya qilib
+olishimiz kerak.
+
+Savol 3: URL marshrutlarda (URL routing) va Viewlarda DRY (Don't Repeat Yourself)  prinsipini qanday
+amalga oshirish mumkin?
+Javob 3: Django dagi DRY prinsipi kod qayta qaytarilmasligini anglatadi, ya'ni ko'p qaytariladigan bir
+malum kodni funskiya, class yoki boshqa ishlatiladigan structuralarni ichiga kiritilib qoyadi va kod
+ko'p qaytarilishini oldini oladi, masalan FBV (Function Based View) yoki CBV (Class Based View) orqali
+ko'dni qisqartirish mumkun. URL routing esa, apps dagi url larni mos keluvchi funksiya yoki class
+bilan bog'lash, masalan uni amalga oshirish uchun views.py ga bitta view yozib uni tegiga bir html berib
+qoyamiz, song app ni ichidagi urls.py ga urlpatterns degan list ichidagi path() ga boyigi html faylni
+berib qoyamiz uni yonidan usha html ga tegishli bolgan view ni nomini yozib uni yonidan name= degan
+joyiga list yozib qoyiladi, ana usha URL routing diyiladi.
+
+Savol 4: Admin panelda modelga o‘zgartirishlar kiritish (masalan, filterlar, qidiruv maydonlari) qanday
+amalga oshiriladi?
+Javob 4: App ni ichida models.py degan python fayldan tashqari, admin.py degan fayl ham bo'ladi, uni
+ichida biz modellarimizni registratsiya qilamiz (admin panelga qoshamiz) va ush joyda biz dekorator
+ishlatgan holatda uni yonidan qovus ochib filtr yoki qidiruv maydoni qoshmoqchi bo'lgan modelni nomini
+yozamis, song uni tegidan class deb yozib classga nom bergandan song qovus ochib u class o'ziga
+vorislik olishi kerak, admin.py ni ichida import qilingan admin nomli kutubxona bo'lad, ana kutubxonadan
+classimiz vorislik oladi. Ohirida nima qoshmoqchi bo'lsak ushani nomini o'zgaruvchi sifatida yozamiz,
+masalan filtr qoshmoqchi bo'lsak list_filter deb yozib bir list ni ichiga modelni qaysi maydoni
+bo'yicha filtirlamoqchi bo'lsak usha maydolarni nomini yazamiz.
