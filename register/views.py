@@ -48,9 +48,9 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})
 
 
-# @login_required
-# def profile_view(request):
-#     return render(request, 'profile.html', {'register': request.register})
+@login_required
+def profile_view(request):
+    return render(request, 'profile.html', {'register': request.register})
 
 
 def logout_view(request):
